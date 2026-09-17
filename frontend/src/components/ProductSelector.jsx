@@ -1,14 +1,14 @@
 import React from 'react';
-import { Gem, Necklace, Ring, Sparkles } from 'lucide-react';
+import { Gem, Crown, Disc, Sparkles } from 'lucide-react';
 
 const getIconForType = (type) => {
   switch (type) {
     case 'earring':
       return <Sparkles className="w-5 h-5" />;
     case 'necklace':
-      return <Necklace className="w-5 h-5" />;
+      return <Crown className="w-5 h-5" />;
     case 'ring':
-      return <Ring className="w-5 h-5" />;
+      return <Disc className="w-5 h-5" />;
     case 'bangle':
       return <Gem className="w-5 h-5" />;
     default:

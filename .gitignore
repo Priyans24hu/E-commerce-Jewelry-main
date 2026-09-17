@@ -1,0 +1,22 @@
+# Dependencies
+**/node_modules
+
+# Build
+**/dist
+**/dist-ssr
+
+# Env
+**/.env
+**/.env.local
+
+# Logs
+**/npm-debug.log*
+**/yarn-debug.log*
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# OS
+Thumbs.db

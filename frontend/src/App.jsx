@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ProductGrid from './components/ProductGrid';
 import TryOnPage from './pages/TryOnPage';
+import AboutPage from './pages/AboutPage';
+import ReviewsPage from './pages/ReviewsPage';
 import ReviewsSection from './components/ReviewsSection';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
@@ -84,13 +86,18 @@ function App() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FDF8F3] text-gray-900 font-sans antialiased selection:bg-roshni-gold selection:text-white">
       
       {/* Website Navigation Header */}
       <Navbar
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)}
         onOpenCart={() => setIsCartOpen(true)}
         searchQuery={searchQuery}
@@ -109,6 +116,14 @@ function App() {
               </span>
             </div>
             <TryOnPage preselectedProduct={preselectedProductForAR} />
+          </div>
+        ) : activeTab === 'about' ? (
+          <div className="animate-fade-in">
+            <AboutPage />
+          </div>
+        ) : activeTab === 'reviews' ? (
+          <div className="animate-fade-in">
+            <ReviewsPage />
           </div>
         ) : (
           <div>
@@ -145,7 +160,7 @@ function App() {
       />
 
       {/* Website Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer setActiveTab={handleTabChange} />
     </div>
   );
 }
